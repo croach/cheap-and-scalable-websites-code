@@ -25,7 +25,7 @@ def index():
     return 'Hello, World!'
 
 @app.route('/blog/<path:path>')
-def post():
+def post(path):
     path = os.path.join('posts', path + POSTS_FILE_EXTENSION)
     post = Post(path)
     return render_template('post.html', post=post)

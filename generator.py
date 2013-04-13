@@ -11,6 +11,7 @@ import yaml
 
 
 FREEZER_BASE_URL = 'http://christopherroach.com'
+FREEZER_DESTINATION_IGNORE = ['.git*', 'CNAME']
 POSTS_FILE_EXTENSION = '.md'
 
 

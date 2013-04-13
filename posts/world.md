@@ -1,5 +1,6 @@
 title: The World is Calling
 date: 2013-03-26
+published: true
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, recusandae, non, voluptate quidem consequatur sed excepturi labore voluptatem corrupti veritatis velit magnam unde voluptatibus voluptatum reiciendis incidunt facilis enim repudiandae.
 

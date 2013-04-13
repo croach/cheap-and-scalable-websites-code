@@ -2,6 +2,8 @@ import os
 import sys
 import collections
 
+import boto
+from boto.s3.key import Key
 from flask import Flask, render_template, url_for, abort, request
 from flask.ext.frozen import Freezer
 from werkzeug import cached_property
@@ -12,6 +14,9 @@ import yaml
 
 FREEZER_BASE_URL = 'http://christopherroach.com'
 FREEZER_DESTINATION_IGNORE = ['.git*', 'CNAME']
+DOMAIN = 'christopherroach.com'
+AWS_ACCESS_KEY_ID = 'AKIAITJVH6MYKPD2RO3Q'
+AWS_SECRET_ACCESS_KEY = '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'
 POSTS_FILE_EXTENSION = '.md'
 
 
@@ -146,10 +151,25 @@ def feed():
             published=post.date)
     return feed.get_response()
 
+def deploy(root_dir):
+    conn = boto.connect_s3(AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
+    bucket = conn.get_bucket(DOMAIN)
+    for (root, dirpaths, filepaths) in os.walk(root_dir):
+        for filepath in filepaths:
+            filename = os.path.join(root, filepath)
+            name = filename.replace(root_dir, '', 1)[1:]
+            key = Key(bucket, name)
+            key.set_contents_from_filename(filename)
+
+    print 'Site is now up on %s' % bucket.get_website_endpoint()
+
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'build':
         freezer.freeze()
+    elif len(sys.argv) > 1 and sys.argv[1] == 'deploy':
+        freezer.freeze()
+        deploy('build')
     else:
         post_files = [post.filepath for post in blog.posts]
         app.run(port=8000, debug=True, extra_files=post_files)

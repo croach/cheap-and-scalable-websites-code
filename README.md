@@ -1,4 +1,4 @@
-## cheap-and-scalable-websites-code
+## Tuts+ Premium Series "Cheap and Scalable Websites With Flask and S3"
 
 This repository holds the code for the Tuts+ Premium screencast series "Cheap and Scalable Websites With Flask and S3". The `master` branch holds the code in it's final form, i.e., as it was at the end of the last episode of the series. Tags have also been added to allow you to checkout the source as it was at the end of a particular episode.
 
@@ -6,8 +6,7 @@ This repository holds the code for the Tuts+ Premium screencast series "Cheap an
 
 1. Get the [source code][source] for the course
 
-    % git clone https://github.com/croach/cheap-and-scalable-websites-code.git
-    % cd tutsplus-django
+        % git clone https://github.com/croach/cheap-and-scalable-websites-code.git
 
 2. Create a virtual environment for the course and install the required software found in the requirements.txt file.
 

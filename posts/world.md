@@ -1,5 +1,5 @@
 title: The World is Calling
-date: 2013-03-26
+date: !!timestamp 2013-03-24T00:00:00-08:00
 published: true
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, recusandae, non, voluptate quidem consequatur sed excepturi labore voluptatem corrupti veritatis velit magnam unde voluptatibus voluptatum reiciendis incidunt facilis enim repudiandae.

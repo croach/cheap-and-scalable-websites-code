@@ -1,5 +1,5 @@
 title: Hello, World!
-date: 2013-03-24
+date: !!timestamp 2013-03-24T00:00:00-08:00
 
 # Hello World
 
